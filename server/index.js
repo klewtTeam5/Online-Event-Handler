@@ -1,7 +1,15 @@
 require('dotenv').config();
+const cors = require('cors')
 const dbConnection = require('./config/database');
 
 const app = require('express')();
+app.use(cors(
+    {
+        origin: ["https://deploy-mern-1whq.vercel.app],
+        methods: ["POST", "GET"],
+        credentials:true
+                 }
+    ));
 
 dbConnection().then(() => {
 
